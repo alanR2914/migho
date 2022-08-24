@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
 import { getProductById } from "../../asynmock";
+import ItemDetail from "../ItemDetail/ItemDetail";
 
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({id}) => {
     const [product, setProduct] = useState()
     
     useEffect(()=> {
-        getProductById('1').then(response => {
-            setProduct(response)
+        getProductById(id).then(product => {
+            setProduct(product)
              
+        })
+        .catch(error => {
+            console.log(error)
         })
     }, [])
 
