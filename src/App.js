@@ -1,18 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './componentes/Navbar/Navbar';
+import ItemListContainer from './componentes/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './componentes/ItemDetailContainer/ItemDetailContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Counter from "./Counter.js/Counter"
+
+
+
+
 
 function App() {
+  const  handleOnAdd = (quantity) => {
+    console.log(`La cantidad agregada es ${quantity}`)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Bienvenidos
-        </p>
+    <BrowserRouter>
+      <Navbar/>
+      <Counter stock={10} onAdd={handleOnAdd} />
+      <Routes>
+      <Route path='/' element={ <ItemListContainer greeting={'Listado de los productos'}/>}/>
+      <Route path='/detail/:productId' element={<ItemDetailContainer/>}/>
 
-      </header>
+       
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
-
-export default App;
+export default App; 
