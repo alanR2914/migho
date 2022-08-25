@@ -1,15 +1,17 @@
 import "./Navbar.css";
+import CartWidget from "../CartWidget/CartWidget";
 const Navbar = () => {
     return (
       <nav className="Navbar">
-      <div>
-      <h1>Ecomerce</h1>
+      <button to="/">
+        ECOMERCE
+      </button>
+      <div className="Categories">
+        <button className="Option">Celulares</button>
+        <button className="Option">Tablets</button>
+        <button className="Option">Notebooks</button>
       </div>
-      <div>
-        <button>Celulares</button>
-        <button>Tablets</button>
-        <button>Notebooks</button>
-      </div>
+      <CartWidget/>
       </nav>
     )
   }
